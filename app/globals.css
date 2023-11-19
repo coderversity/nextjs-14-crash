@@ -2,21 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default CSS font styles */
+html, body {
+  font-family: var(--font-lato);
+  letter-spacing: normal;
+  font-weight: bold;
+}
+
+.font-bangers {
+  font-family: var(--font-bangers);
+}
+
 @layer base {
   h1 {
-    @apply text-6xl font-bold;
+    @apply text-4xl text-center font-semibold pb-4;
   }
 
   h2 {
-    @apply text-4xl font-bold;
+    @apply text-2xl pb-4;
   }
 
   h3 {
-    @apply text-2xl font-bold;
+    @apply text-xl pb-4;
   }
 
   header {
     @apply bg-blue-700 py-3;
+  }
+
+  form {
+    @apply space-y-4;
+  }
+
+  input[type='text'] {
+    @apply w-full border border-gray-600 rounded-sm p-3 placeholder-gray-600;
   }
 }
 
@@ -29,11 +48,11 @@
     @apply flex justify-center items-center container text-white text-5xl font-bold;
   }
 
-  .navbar span {
-    @apply shadow-sm;
+  .btn {
+    @apply w-full flex flex-col items-center font-bold uppercase text-yellow-300 text-xl tracking-wider bg-blue-700 hover:bg-blue-800 p-3 rounded-sm;
   }
 
-  .btn {
-    @apply flex flex-col items-center font-bold tracking-wide text-yellow-500 bg-blue-700;
+  .search-section {
+    @apply w-1/3;
   }
 }

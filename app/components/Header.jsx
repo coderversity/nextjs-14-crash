@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header>
             <div className="navbar">
-                <Image height={200} width={200} src='/pokemon-logo.png' alt='logo' /><span>&trade; Profiler</span>
+                <Image height={200} width={200} src='/pokemon-logo.png' alt='logo' /><small className='text-sm'>&trade;&nbsp;</small><span className='font-bangers'>Profiler</span>
             </div>
         </header>
     )

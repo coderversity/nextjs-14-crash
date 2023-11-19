@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl font-bold;
+  }
+
+  header {
+    @apply bg-blue-700 py-3;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto;
+  }
+
+  .navbar {
+    @apply flex justify-center items-center container text-white text-5xl font-bold;
+  }
+
+  .navbar span {
+    @apply shadow-sm;
+  }
+
+  .btn {
+    @apply flex flex-col items-center font-bold tracking-wide text-yellow-500 bg-blue-700;
+  }
+}

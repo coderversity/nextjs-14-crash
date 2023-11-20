@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 
+import TopPokemon from './components/TopPokemon';
+
 const HomePage = () => {
   const [keyword, setKeyword] = useState('');
 
@@ -15,12 +17,16 @@ const HomePage = () => {
   return (
     <>
       <section className='search-section'>
-        <h2>Search Pokémon skills and abilities.</h2>
+        <h1 className='font-bangers'>Search Pokémon skills and abilities.</h1>
 
         <form onSubmit={handleSubmit}>
           <input type='text' name='seatrchTerm' value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder='Search Pokémon by name...' />
           <button type='submit' className='btn font-bangers'>Go!</button>
         </form>
+      </section>
+
+      <section className='random-section'>
+        <TopPokemon />
       </section>
     </>  
   )

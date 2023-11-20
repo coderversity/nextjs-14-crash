@@ -1,4 +1,4 @@
-import { FaCheck } from 'react-icons/fa';
+import Image from 'next/image';
 import React from 'react'
 
 const BASE_URI = 'https://pokeapi.co/api/v2';
@@ -45,6 +45,21 @@ const TopPokemon = async () => {
     const { results } = await fetchPokemonList();
     const pokemon = await fetchPokemonData(results);
 
+    const beautify = (str) => {
+        let newStr = '';
+        const strArr = str.split('-');
+        
+        strArr.forEach(s => {
+            if (newStr !== '') {
+                newStr += ' ';
+            }
+
+            newStr += s.charAt(0).toUpperCase() + s.slice(1);
+        });
+
+        return newStr;
+    }
+
     return (
         <>
             <h1 className='font-bangers text-center'>Top Pokémon</h1>
@@ -59,14 +74,21 @@ const TopPokemon = async () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {pokemon?.map(item => (
-                            <tr key={item.id}>
-                                <td>IMAGE</td>
-                                <td>{item.name}</td>
+                        {pokemon?.map((item, index) => (
+                            <tr key={item.id} className={index % 2 === 0 ? 'bg-white': 'bg-gray-300'}>
+                                <td>
+                                    <Image
+                                        src={item.sprites?.front_default}
+                                        height={250}
+                                        width={250}
+                                        alt={item.name}
+                                    />
+                                </td>
+                                <td>{beautify(item.name)}</td>
                                 <td>
                                     <ul>
                                         {item.abilities?.map((abl, index) => (
-                                            <li key={index}><FaCheck />{abl.ability?.name}</li>
+                                            <li key={index}>{beautify(abl.ability?.name)}</li>
                                         ))}
                                     </ul>
                                 </td>

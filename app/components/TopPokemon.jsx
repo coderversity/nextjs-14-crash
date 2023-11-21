@@ -1,7 +1,6 @@
+import { BASE_URI } from '@/utils/helpers';
 import Image from 'next/image';
-import React from 'react'
-
-const BASE_URI = 'https://pokeapi.co/api/v2';
+import { beautify } from '@/utils/helpers';
 
 // Server component API call loads data on page load
 async function fetchPokemonList() {
@@ -44,21 +43,6 @@ async function fetchPokemonData(pokemonList) {
 const TopPokemon = async () => {
     const { results } = await fetchPokemonList();
     const pokemon = await fetchPokemonData(results);
-
-    const beautify = (str) => {
-        let newStr = '';
-        const strArr = str.split('-');
-        
-        strArr.forEach(s => {
-            if (newStr !== '') {
-                newStr += ' ';
-            }
-
-            newStr += s.charAt(0).toUpperCase() + s.slice(1);
-        });
-
-        return newStr;
-    }
 
     return (
         <>

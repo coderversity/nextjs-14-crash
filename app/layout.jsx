@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${bangers.variable} ${lato.variable}`}>
         <Header />
-        <main className='container py-10'>
+        <main className='container py-12'>
           {children}
         </main>
       </body>

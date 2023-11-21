@@ -11,16 +11,21 @@ async function fetchPokemonList() {
 
     const limit = 10; // maximum records to retrieve
 
-    const response = await fetch(
-        `${BASE_URI}/pokemon?offset=${offset}&limit=${limit}`, {
-            next: {
-                revalidate: 60,
-            },
-        }
-    );
+    try {
+        const response = await fetch(
+            `${BASE_URI}/pokemon?offset=${offset}&limit=${limit}`, {
+                next: {
+                    revalidate: 60,
+                },
+            }
+        );
 
-    return await response.json();
-    return pokemon;
+        return await response.json();
+    } catch (err) {
+        console.error(err);
+    }
+
+    return null;
 }
 
 async function fetchPokemonData(pokemonList) {
